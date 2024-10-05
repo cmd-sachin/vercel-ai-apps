@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #4379f2; /* Main background color */
+  --foreground: #000607; /* Main text color */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #d2d4d7; /* Dark mode background */
+    --foreground: #ededed; /* Dark mode text color */
+  }
+}
+
+.flex-1 {
+  display: flex; /* Ensure this is set to flex */
+  flex-direction: column; /* Stack messages vertically */
+  align-items: flex-start; /* Default alignment */
+}
+
+body {
+  background-image: url("/bg.jpg");
+  background-size: cover; /* Adjust as needed */
+  background-repeat: no-repeat; /* Prevent tiling */
+  color: var(--foreground);
+
+  font-family: "Space Grotesk";
+  font-size: xx-large; /* Adjusted font size for better readability */
+  margin: 0;
+  padding-top: 80px; /* Reduced padding for better layout */
+}
+
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Added padding for better spacing */
+  background-color: #f5f7f8;
+  z-index: 1000;
+  border-bottom: 2px solid #393e46;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+}
+
+.logo {
+  width: 80px; /* Adjust logo size */
+}
+
+h1 {
+  font-family: "Protest Guerrilla", sans-serif;
+  font-weight: 600;
+  font-size: 40px; /* Adjusted font size for the title */
+  color: var(--foreground);
+  margin: 0;
+}
+
+.dropbox {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#dropbox {
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  padding: 8px;
+  border: 2px solid #2a6ae0;
+  border-radius: 4px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  transition: border-color 0.2s;
+}
+
+#dropbox:hover {
+  border-color: #1e88e5; /* Highlight border on hover */
+}
+
+.fixed-input {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  padding: 10px 20px;
+  background-color: whitesmoke;
+  border: 1px solid black;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 2px solid #2a6ae0;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.2s;
+}
+
+input::placeholder {
+  color: #000607;
+  font-size: x-large;
+}
+
+input:focus {
+  border-color: #1e88e5;
+  font-size: x-large;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 40%;
+}
+
+.container.user {
+  color: white;
+  background-color: #393e46;
+  border-radius: 10px;
+  align-self: flex-end;
+  padding: 10px;
+  max-width: 80%;
+}
+
+.container.assistant {
+  color: black;
+  background-color: #fff5e4;
+  border-radius: 10px;
+  padding: 10px;
+  align-self: flex-start;
+  max-width: 80%;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance; /* Text balance utility */
+  }
+}
