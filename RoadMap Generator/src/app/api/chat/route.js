@@ -3,7 +3,7 @@ import { generateObject } from "ai";
 import { z } from "zod";
 
 const google = createGoogleGenerativeAI({
-  apiKey: "AIzaSyCHG4fbaKyXVNpdP5ocVpb8dzNZ7eDaz_4",
+  apiKey: "Your GOOGLE API KEY",
 });
 
 export async function POST(req) {
