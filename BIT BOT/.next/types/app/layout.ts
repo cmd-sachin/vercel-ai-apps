@@ -1,4 +1,4 @@
-// File: /Users/DELL/Desktop/AI_ASSISTANT/sachin-crayon-d/vercel-ai-apps/BIT BOT/src/app/layout.js
+// File: /Users/DELL/Desktop/Git-test/vercel-ai-apps/BIT BOT/src/app/layout.js
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

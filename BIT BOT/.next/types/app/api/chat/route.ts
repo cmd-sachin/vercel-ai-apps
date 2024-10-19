@@ -1,4 +1,4 @@
-// File: /Users/DELL/Desktop/AI_ASSISTANT/sachin-crayon-d/vercel-ai-apps/BIT BOT/src/app/api/chat/route.js
+// File: /Users/DELL/Desktop/Git-test/vercel-ai-apps/BIT BOT/src/app/api/chat/route.js
 import * as entry from '../../../../../src/app/api/chat/route.js'
 import type { NextRequest } from 'next/server.js'
 
