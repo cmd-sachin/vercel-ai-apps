@@ -14,12 +14,6 @@
   }
 }
 
-.flex-1 {
-  display: flex; /* Ensure this is set to flex */
-  flex-direction: column; /* Stack messages vertically */
-  align-items: flex-start; /* Default alignment */
-}
-
 body {
   background-image: url("/bg.jpg");
   background-size: cover; /* Adjust as needed */
@@ -48,7 +42,7 @@ body {
 }
 
 .logo {
-  width: 80px; /* Adjust logo size */
+  width: 100px; /* Adjust logo size */
 }
 
 h1 {
@@ -59,13 +53,13 @@ h1 {
   margin: 0;
 }
 
-.dropbox {
+select {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-#dropbox {
+select {
   font-family: "Space Grotesk";
   font-size: 20px;
   padding: 8px;
@@ -76,7 +70,7 @@ h1 {
   transition: border-color 0.2s;
 }
 
-#dropbox:hover {
+select:hover {
   border-color: #1e88e5; /* Highlight border on hover */
 }
 
@@ -107,35 +101,6 @@ input::placeholder {
   font-size: x-large;
 }
 
-input:focus {
-  border-color: #1e88e5;
-  font-size: x-large;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  width: 40%;
-}
-
-.container.user {
-  color: white;
-  background-color: #393e46;
-  border-radius: 10px;
-  align-self: flex-end;
-  padding: 10px;
-  max-width: 80%;
-}
-
-.container.assistant {
-  color: black;
-  background-color: #fff5e4;
-  border-radius: 10px;
-  padding: 10px;
-  align-self: flex-start;
-  max-width: 80%;
-}
 
 @layer utilities {
   .text-balance {

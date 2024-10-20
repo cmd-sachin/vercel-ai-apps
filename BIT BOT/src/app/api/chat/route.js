@@ -84,22 +84,14 @@ const generate_query = async (inp) => {
     },
   });
 
-  try {
-    const response = await generateText({
-      model: google("gemini-1.5-flash"),
-      prompt: inp,
-      maxSteps: 5,
-      system: system_prompt,
-    });
-
-    console.log("AI Response:", response);
-    const query_ = extractJson(response.text).query;
-    console.log("Generated SQL Query:", query_);
-    return query_;
-  } catch (error) {
-    console.error("Error in generating query:", error);
-    throw new Error("Query generation failed.");
-  }
+  const response = await generateText({
+    model: google("gemini-1.5-flash"),
+    prompt: inp,
+    maxSteps: 5,
+    system: system_prompt,
+  });
+  const query_ = extractJson(response.text).query;
+  return query_;
 };
 
 const access_db = async (message) => {
@@ -131,7 +123,7 @@ export async function POST(req) {
 
   const model_ = google(modelMap[selectedOption] || "gemini-1.5-pro-latest");
 
-  const text = await streamText({
+  const result = await streamText({
     model: model_,
     messages: convertToCoreMessages(messages),
     maxSteps: 4,
@@ -141,7 +133,7 @@ export async function POST(req) {
       objective:
         "You should only respond to the queries related to BIT and assist the students.",
       instructions: [
-        "You can take time and process the output.",
+        "check and verify the database before responding.You have all the details of the departments in BIT,you can access database for those info",
         "You can access database for administrators details like chairman,trustee and principal",
         "Return the faculties name,role and department when asked about any faculties",
         "You should answer the questions about BIT with tools provided",
@@ -192,11 +184,10 @@ export async function POST(req) {
           message: z.string(),
         }),
         execute: async ({ message }) => {
-          console.log(message);
           try {
-            const result = await access_db(message);
-            console.log(result);
-            return { success: true, result };
+            let res = await access_db(message);
+            console.log(res);
+            return { success: true, res };
           } catch (error) {
             console.error("Error in accessing Database:", error);
             return { success: false, error: error.message };
@@ -205,6 +196,5 @@ export async function POST(req) {
       },
     },
   });
-
-  return text.toDataStreamResponse();
+  return result.toDataStreamResponse();
 }
