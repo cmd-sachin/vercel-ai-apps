@@ -59,9 +59,12 @@ export default function Chat() {
     onError: (error) => {
       console.error("Chat error:", error);
       setDisplayError(
-        error.message || "An error occurred while processing your request."
+        error.message
       );
     },
+    onResponse: (response)=>{
+      console.log("Response  " + response)
+    }
   });
 
   const scrollToBottom = () => {

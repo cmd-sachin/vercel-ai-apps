@@ -196,5 +196,7 @@ export async function POST(req) {
       },
     },
   });
-  return result.toDataStreamResponse();
+  let response = result.toDataStreamResponse();
+  console.log(response);
+  return response;
 }
